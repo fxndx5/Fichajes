@@ -3,16 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Time Tracking</title>
+    <title>Registro de Jornada laboral</title>
     <link rel="stylesheet" href="public/styles/main.css">
 </head>
 <body>
     <div id="app">
         <h1>Registro de Jornada laboral</h1>
+        <!-- <?php if(isset($_SESSION['mensaje'])): ?>
+            <div class="alert alert-success">
+                <?php echo $_SESSION['mensaje']; unset($_SESSION['mensaje']); ?>
+            </div>
+        <?php endif; ?>
+        
+        <?php if(isset($_SESSION['error'])): ?>
+            <div class="alert alert-danger">
+                <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
+            </div>
+        <?php endif; ?> -->
         <div id="clock-in-out">
             <div id="clock-in-out-form">
                 <h2>Fichaje</h2>
-                <form id="clock-form">
+                <form id="clock-form" action="index.php?controller=fichaje&action=registrar" method="POST">
                     <label for="employee-id">Usuario DNI:</label>
                     <input type="text" id="employee-id" name="employee-id" required>
                     <button type="submit">Entrada/Salida</button>
@@ -20,7 +31,7 @@
         </div>
         <div id="login">
             <h2>Login</h2>
-            <form id="login-form">
+            <form id="login-form" action="index.php?controller=fichaje&action=ultimoFichaje" method="GET">
                 <label for="username">Usuario:</label>
                 <input type="text" id="username" name="username" required>
                 <label for="password">Contraseña:</label>
